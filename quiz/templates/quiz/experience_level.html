@@ -1,0 +1,27 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Select Experience Level for {{ topic | capfirst }}{% endblock %}
+
+{% block content %}
+    <div class="experience-container">
+        <h2 style="color: rgb(57, 57, 57);">Select Your Experience Level for {{ topic | capfirst }}</h2>
+        
+        <div class="experience-level-container">
+            <div class="experience-level-box" onclick="location.href='{% url 'quiz_page' topic=topic level='beginner' %}'">
+                <h3>Beginner</h3>
+                <p>Just starting out</p>
+            </div>
+            
+            <div class="experience-level-box" onclick="location.href='{% url 'quiz_page' topic=topic level='intermediate' %}'">
+                <h3>Intermediate</h3>
+                <p>Some knowledge of the topic</p>
+            </div>
+            
+            <div class="experience-level-box" onclick="location.href='{% url 'quiz_page' topic=topic level='advanced' %}'">
+                <h3>Advanced</h3>
+                <p>Expert level knowledge</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

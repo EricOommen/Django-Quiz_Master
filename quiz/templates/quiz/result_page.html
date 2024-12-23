@@ -1,0 +1,10 @@
+{% extends "quiz/base.html" %}
+
+
+{% block content %}
+<div class="result-container">
+    <h2 style="color: rgb(62, 62, 62);">Quiz Result</h2>
+    <p class="score" style="font-size: 1.2em; margin-bottom: 20px;">Your Score: <strong>{{ score }}</strong> / <strong>{{ total_questions }}</strong></p>
+    <a href="{% url 'home' %}" class="btn">Return to Home</a>
+</div>
+{% endblock %}

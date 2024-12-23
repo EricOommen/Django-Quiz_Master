@@ -1,0 +1,15 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Home - Quiz Website{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <h2>Welcome to the Quiz Master</h2>
+    <p>Select a topic to start your quiz journey. Questions will adapt to your performance!</p>
+
+    <div class="buttons">
+        <a href="{% url 'topic_selection' %}" class="btn">Choose a Topic</a>
+        <a href="{% url 'history_page' %}" class="btn">View Quiz History</a>
+    </div>
+</div>
+{% endblock %}

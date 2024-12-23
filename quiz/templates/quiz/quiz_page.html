@@ -1,0 +1,29 @@
+{% extends "quiz/base.html" %}
+
+{% block content %}
+
+{% load static %}
+<div class="quiz-container">
+    <h2 style="color: rgb(62, 62, 62);">{{ topic | upper }} Quiz - {{ level | capfirst }}</h2>
+    <form method="POST" action="{% url 'result_page' %}">
+        {% csrf_token %}
+        {% for question in questions %}
+        <div class="quiz-question">
+            <p class="question">{{ forloop.counter }}. {{ question.question_text }}</p>
+            <ul class="options">
+                {% for option in question.get_options %}
+                <li>
+                    <label>
+                        <input type="radio" name="q{{ question.id }}" value="{{ option }}" required>
+                        {{ option }}
+                    </label>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+        <button type="submit">Submit Quiz</button>
+    </form>
+</div>
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends 'quiz/base.html' %}
+
+
+{% block title %}Select a Topic{% endblock %}
+
+
+{% load static %}
+
+{% block content %}
+
+<div class="topic-container">
+    <h2>Select a Topic</h2>
+    <div class="topics">
+        <!-- Operating Systems -->
+        <div class="topic-box" onclick="location.href='{% url 'experience_level' 'os' %}'">
+            <img src="{% static 'quiz/icons/os.png' %}" alt="Operating Systems Icon">
+            <div class="topic-footer">Operating Systems</div>
+        </div>
+
+        <!-- DBMS -->
+        <div class="topic-box" onclick="location.href='{% url 'experience_level' 'dbms' %}'">
+            <img src="{% static 'quiz/icons/dbms.png' %}" alt="DBMS Icon">
+            <div class="topic-footer">DBMS</div>
+        </div>
+
+        <!-- DSA -->
+        <div class="topic-box" onclick="location.href='{% url 'experience_level' 'dsa' %}'">
+            <img src="{% static 'quiz/icons/dsa.png' %}" alt="DSA Icon">
+            <div class="topic-footer">DSA</div>
+        </div>
+
+        <!-- Cloud -->
+        <div class="topic-box" onclick="location.href='{% url 'experience_level' 'cloud' %}'">
+            <img src="{% static 'quiz/icons/cloud.png' %}" alt="Cloud Icon">
+            <div class="topic-footer">Cloud</div>
+        </div>
+
+        <!-- Computer Networks -->
+        <div class="topic-box" onclick="location.href='{% url 'experience_level' 'networks' %}'">
+            <img src="{% static 'quiz/icons/networks.png' %}" alt="Computer Networks Icon">
+            <div class="topic-footer">Computer Networks</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Quiz Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'quiz/styles.css' %}">
+</head>
+<body
+    {% if background_image %}
+    style="background-image: url('{% static background_image %}'); background-size: cover; background-attachment: fixed; background-repeat: no-repeat;"
+    {% endif %}
+>
+    <header>
+        <nav>
+            <h1>Quiz Master</h1>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'topic_selection' %}">Topics</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
