@@ -8,7 +8,7 @@ from .models import Question, UserResult
 
 def home(request):
     context = {
-        "background_image": "quiz/images/background.jpg",  # Path to your background image
+        "background_image": "quiz/images/background.jpg",
     }
     return render(request, "quiz/home.html", context)
 
@@ -25,7 +25,7 @@ def signup(request):
         form = UserCreationForm()
     context = {
         "form": form,
-        "background_image": "quiz/images/background.jpg",  # Path to your background image
+        "background_image": "quiz/images/background.jpg",
     }
     return render(request, "quiz/signup.html", context)
 
@@ -41,7 +41,7 @@ def login_user(request):
         else:
             messages.error(request, "Invalid username or password.")
     context = {
-        "background_image": "quiz/images/background.jpg",  # Path to your background image
+        "background_image": "quiz/images/background.jpg",
     }
     return render(request, "quiz/login.html", context)
 
@@ -54,7 +54,7 @@ def logout_user(request):
 @login_required
 def topic_selection(request):
     context = {
-        "background_image": "quiz/images/background.jpg",  # Path to your background image
+        "background_image": "quiz/images/background.jpg",
     }
     return render(request, "quiz/topic_selection.html", context)
 
@@ -76,7 +76,7 @@ def quiz_page(request, topic, level):
     request.session["level"] = level
 
     context = {
-        "background_image": "quiz/images/background.jpg",  # Path to your background image
+        "background_image": "quiz/images/background.jpg",
         "questions": questions,
         "topic": topic,
         "level": level,
@@ -109,11 +109,11 @@ def result_page(request):
             topic=topic,
             level=level,
             score=score,
-            total_questions=total_questions,  # Pass total_questions here
+            total_questions=total_questions,
         )
 
         context = {
-            "background_image": "quiz/images/background.jpg",  # Path to your background image
+            "background_image": "quiz/images/background.jpg",
             "score": score,
             "total_questions": total_questions,
         }
@@ -127,7 +127,7 @@ def history_page(request):
     user_results = UserResult.objects.filter(user=request.user)
 
     context = {
-        "background_image": "quiz/images/background.jpg",  # Path to your background image
+        "background_image": "quiz/images/background.jpg",
         "user_results": user_results,
     }
     return render(request, "quiz/history.html", context)
